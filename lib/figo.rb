@@ -139,7 +139,7 @@ module Figo
       response = @https.request(uri, request)
 
       # Evaluate HTTP response.
-      return response.body == "" ? {} : JSON.parse(response.body)
+      return response.body.blank? ? {} : JSON.parse(response.body)
     end
 
 
