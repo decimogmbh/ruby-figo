@@ -85,7 +85,7 @@ module Figo
           return response
         when Net::HTTPBadRequest
           hash = JSON.parse(response.body)
-          raise Error.new(hash["error"], hash["error_description"])
+          raise Error.new(hash["error"]["message"], hash["error"]["description"])
         when Net::HTTPUnauthorized
           raise Error.new("unauthorized", "Missing, invalid or expired access token.")
         when Net::HTTPForbidden
