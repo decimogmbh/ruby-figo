@@ -192,7 +192,8 @@ module Figo
     # @return [nil]
     def revoke_token(refresh_token_or_access_token)
       data = { "token" => refresh_token_or_access_token }
-      query_api("/auth/revoke?" + URI.encode_www_form(data))
+      # query_api("/auth/revoke?" + URI.encode_www_form(data))
+      query_api("/auth/revoke", data)
       return nil
     end
 
